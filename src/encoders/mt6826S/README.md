@@ -1,8 +1,13 @@
-# MT6835 SimpleFOC driver
+# MT6826S SimpleFOC driver This is a first test Version based on a modification of the MT6835 Driver. NOT fully Tested. Credits for the driver this is Based on go to the SimpleFOC Team. 
 
-Driver for the MagnTek MT6835 precision magnetic rotary encoder.
+Description following this is also based on the MT6835 Description:
 
-This sensor features support for up to 21 bit resolution (!) and speeds up to 120,000RPM. While its full precision requires calibration using an external calibration system, it is impressively precise even in uncalibrated state, and it offers an internal self-calibration mode whose precision is somewhere between the other two.
+
+# MT6826S SimpleFOC driver
+
+Driver for the MagnTek MT6826S precision magnetic rotary encoder.
+
+This sensor features support for up to 15 bit resolution (!) and speeds up to 120,000RPM. While its full precision requires calibration using an external calibration system, it is impressively precise even in uncalibrated state, and it offers an internal self-calibration mode whose precision is somewhere between the other two.
 
 It has ABZ, UVW and SPI interfaces, and this driver is for its SPI inteface. You can use its ABZ interface with our Encoder classes, but due to the high resolution the interrupt-based Encoder might cause high MCU load. You can use its UVW interface with our Hall Sensor classes.
 
@@ -20,12 +25,12 @@ Usage example:
 #include "SimpleFOC.h"
 #include "SimpleFOCDrivers.h"
 
-#include "encoders/mt6835/MagneticSensorMT6835.h"
+#include "encoders/mt6826S/MagneticSensormt6826S.h"
 
 #define SENSOR_nCS PB6
 
-SPISettings myMT6835SPISettings(1000000, MT6835_BITORDER, SPI_MODE3);
-MagneticSensorMT6835 sensor = MagneticSensorMT6835(SENSOR_nCS, myMT6835SPISettings);
+SPISettings mymt6826SSPISettings(1000000, MT6835_BITORDER, SPI_MODE3);
+MagneticSensormt6826S sensor = MagneticSensormt6826S(SENSOR_nCS, mymt6826SSPISettings);
 
 long ts;
 
